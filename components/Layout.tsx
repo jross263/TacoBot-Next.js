@@ -1,6 +1,10 @@
 import Head from 'next/head';
 
-const Layout = ({ children }) => {
+interface LayoutProps {
+  children: JSX.Element
+}
+
+const Layout = ({ children }: LayoutProps) => {
   return (
       <>
         <Head>

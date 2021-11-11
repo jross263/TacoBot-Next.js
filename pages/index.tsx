@@ -1,4 +1,4 @@
-import type { NextPage } from 'next'
+import type { NextPage, GetServerSideProps } from 'next'
 import Image from 'next/image'
 import { signIn, getSession } from 'next-auth/client';
 import { Flex, Heading, Stack, Button, useBreakpointValue } from '@chakra-ui/react'
@@ -30,7 +30,7 @@ const Home: NextPage = () => {
         {sideOrStack === "side" && <TacoBotImg />}
         <Stack align="center" textAlign="center">
           {sideOrStack === "stack" && <TacoBotImg />}
-          <Heading as="h1" size="4xl"> Hi I'm TacoBot 👋</Heading>
+          <Heading as="h1" size="4xl"> Hi I&apos;m TacoBot 👋</Heading>
           <Heading as="h3" size="lg"> To use my features, please authenticate with Discord below </Heading>
           <Button w={buttonSize} leftIcon={<FaDiscord />} colorScheme="teal" variant="solid" onClick={() => signIn("discord")}>
             Authenticate
@@ -41,7 +41,7 @@ const Home: NextPage = () => {
   )
 }
 
-export async function getServerSideProps(context) { 
+export const getServerSideProps: GetServerSideProps = async (context) => { 
   const session = await getSession(context)
   if(session) {
     return {
