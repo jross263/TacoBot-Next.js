@@ -40,7 +40,7 @@ const Home: NextPage = () => {
     </Flex>
   )
 }
-
+//need to rebuild
 export const getServerSideProps: GetServerSideProps = async (context) => { 
   const session = await getSession(context)
   if(session) {
