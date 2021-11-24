@@ -1,10 +1,9 @@
 import type { GetServerSideProps } from 'next';
 import { signOut, getSession } from 'next-auth/client';
-import { Button } from '@chakra-ui/react'
 
 const Dashboard = () => {
     return (
-        <Button onClick={() => signOut()}>Sign Out</Button>
+        <button onClick={() => signOut()}>Sign Out</button>
     );
 };
 
