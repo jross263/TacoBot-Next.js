@@ -1,14 +1,16 @@
 import type { NextPage, GetServerSideProps } from 'next'
 import Image from 'next/image'
-import { signIn, getSession } from 'next-auth/client';
+import { signIn } from 'next-auth/react';
+import { authOptions } from "./api/auth/[...nextauth]"
 
 import { FaDiscord } from "react-icons/fa"
 
 import profilePic from '../public/tacobot.png'
+import { unstable_getServerSession } from 'next-auth';
+
 
 
 const Home: NextPage = () => {
-  //signIn("discord")
   return (
     <div className="h-full flex justify-center items-center">
       <div className="flex justify-center items-center flex-col gap-5 md:flex-row text-center ml-5 mr-5 md:text-left">
@@ -26,10 +28,16 @@ const Home: NextPage = () => {
       </div>
     </div>
   )
-//need to rebuild
 }
+
 export const getServerSideProps: GetServerSideProps = async (context) => { 
-  const session = await getSession(context)
+
+  const session = await unstable_getServerSession(
+    context.req,
+    context.res,
+    authOptions
+  );
+
   if(session) {
     return {
       redirect: {
