@@ -1,8 +1,8 @@
 import type { GetServerSideProps } from 'next';
 import { unstable_getServerSession } from 'next-auth';
-import { authOptions } from '../api/auth/[...nextauth]';
-import Header from '../../components/Header';
 import GuildCard from '../../components/GuildCard';
+import Header from '../../components/Header';
+import { authOptions } from '../api/auth/[...nextauth]';
 
 interface DashboardProps {
   user: User,

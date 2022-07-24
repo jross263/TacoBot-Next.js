@@ -1,7 +1,7 @@
 import { GetServerSideProps } from 'next';
 import { unstable_getServerSession } from 'next-auth';
-import { authOptions } from '../api/auth/[...nextauth]';
 import { db } from '../../firebase';
+import { authOptions } from '../api/auth/[...nextauth]';
 
 interface GuildProps {
   logs: Log[];

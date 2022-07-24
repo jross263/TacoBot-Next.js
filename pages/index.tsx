@@ -1,12 +1,11 @@
-import type { NextPage, GetServerSideProps } from 'next';
-import Image from 'next/image';
+import type { GetServerSideProps, NextPage } from 'next';
+import { unstable_getServerSession } from 'next-auth';
 import { signIn } from 'next-auth/react';
+import Image from 'next/image';
 import { authOptions } from './api/auth/[...nextauth]';
 
 import { FaDiscord } from 'react-icons/fa';
-
 import profilePic from '../public/tacobot.png';
-import { unstable_getServerSession } from 'next-auth';
 
 
 
